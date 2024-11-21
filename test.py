@@ -63,7 +63,6 @@ elif chart_type == "Hiển thị tỷ lệ phần trăm phiếu của GOP và Đ
     votes_in_state = votes_per_state.loc[selected_state]
     st.write(votes_in_state)
     fig3, ax3 = plt.subplots()
-    ax3.pie(votes_in_state, labels=['GOP', 'Dem'], autopct='%1.1f%%', startangle=140, colors=['blue', 'red'])
     ax3.set_title(f'Phần trăm bỏ phiếu tại {selected_state}')
     st.pyplot(fig3)
 #  Line Chart - Hiển thị xu hướng phần trăm phiếu của GOP trên các quận trong một bang được chọn.
@@ -80,6 +79,7 @@ elif chart_type == "Hiển thị xu hướng phần trăm phiếu của GOP trê
     st.pyplot(fig5)
     #ket qua bau cu
 elif chart_type == "Biểu đồ kết quả bầu cử":
+    st.subheader("Hiển thị kết quả bầu cử")
     GOP_CHOICES =df['votes_gop'].sum()
     DEM_CHOICES = df['votes_dem'].sum()
     total_votes =[df['votes_gop'].sum(), df['votes_dem'].sum()]
