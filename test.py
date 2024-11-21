@@ -9,7 +9,7 @@ data=pd.read_csv('baucu.csv')
 
 st.write(df.head(10))
 #làm dữ liệu 
-votes_per_state=df.groupby('state_name')[['votes_gop', 'votes_dem']].sum().abs()
+votes_per_state=df.groupby('state_name')[['votes_gop', 'votes_dem']].sum().sort_values('votes_dem')
 # Sắp xếp dữ liệu
 state_votes = data.groupby("state_name").agg(
     avg_gop=("per_gop", "mean"), avg_dem=("per_dem", "mean")
@@ -78,7 +78,7 @@ elif chart_type == "Hiển thị xu hướng phần trăm phiếu của GOP trê
     ax5.set_ylabel('GOP Vote Percentage')
     ax5.tick_params(axis='x', rotation=90)
     st.pyplot(fig5)
-    #ket qua bao cu
+    #ket qua bau cu
 elif chart_type == "Biểu đồ kết quả bầu cử":
     GOP_CHOICES =df['votes_gop'].sum()
     DEM_CHOICES = df['votes_dem'].sum()
